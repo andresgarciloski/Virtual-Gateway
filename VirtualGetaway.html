@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualGetaway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        #inicio img {
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .destinos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .destino {
+            width: 250px;
+            margin: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .destino img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .destino h2 {
+            font-size: 20px;
+            color: #333;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 640px;
+            border: none;
+            max-width: 100%;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>VirtualGetaway</h1>
+    <nav>
+        <a href="#tours">Tours</a>
+    </nav>
+</header>
+
+<section id="inicio">
+    <img src="Logo.jpg" alt="Londres">
+</section>
+
+<section id="tours" class="destinos">
+    <div class="destino">
+        <img src="Paris.jpg" alt="París">
+        <h2>París</h2>
+        <iframe class="iframe-container" allowvr="yes" allow="xr-spatial-tracking; vr; gyroscope; accelerometer; fullscreen;" scrolling="no" allowfullscreen="true" src="https://webobook.com/public/671d8152f92c8812400b98c2,en?ap=false&si=true&sm=true&sp=true&sfr=false&sl=false&sop=false&"></iframe>
+    </div>
+    <div class="destino">
+        <img src="Londres.jpg" alt="Londres">
+        <h2>Londres</h2>
+        <iframe class="iframe-container" allowvr="yes" allow="xr-spatial-tracking; vr; gyroscope; accelerometer; fullscreen;" scrolling="no" allowfullscreen="true" src="https://webobook.com/public/671e7557d4aad454a2186372,en?ap=true&si=true&sm=false&sp=true&sfr=false&sl=false&sop=false&"></iframe>
+    </div>
+    <div class="destino">
+        <img src="Roma.jpg" alt="Roma">
+        <h2>Roma</h2>
+        <iframe class="iframe-container" allowvr="yes" allow="xr-spatial-tracking; vr; gyroscope; accelerometer; fullscreen;" scrolling="no" allowfullscreen="true" src="https://webobook.com/public/671e815ecbd6f32d3469dff2,en?ap=true&si=true&sm=false&sp=true&sfr=false&sl=false&sop=false&"></iframe>
+    </div>
+</section>
+
+</body>
+</html>
