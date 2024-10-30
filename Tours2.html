@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualGetaway - Destinos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .imagenes-destinos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .imagenes-destinos a {
+            display: inline-block;
+        }
+        .imagenes-destinos img {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .imagenes-destinos img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Destinos Turísticos</h1>
+    <nav>
+        <a href="Inicio.html">Inicio</a>
+        <a href="paris.html">París</a>
+        <a href="londres.html">Londres</a>
+        <a href="roma.html">Roma</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Bienvenido a VirtualGetaway</h2>
+    <p>Explora nuestros destinos turísticos en París, Londres y Roma.</p>
+
+    <div class="imagenes-destinos">
+        <a href="paris.html"><img src="Paris.jpg" alt="París"></a>
+        <a href="londres.html"><img src="Londres.jpg" alt="Londres"></a>
+        <a href="roma.html"><img src="Roma.jpg" alt="Roma"></a>
+    </div>
+</main>
+
+</body>
+</html>
