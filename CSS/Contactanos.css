@@ -3,29 +3,39 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: #f4f4f4;
 }
+
 header {
     background-color: #333;
     color: #fff;
     padding: 20px;
 }
+
 nav a {
     color: #fff;
     margin: 0 15px;
     text-decoration: none;
     font-size: 18px;
 }
+
 #contact-info {
     margin: 20px auto;
     max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 #contact-info img {
     width: 80%;
     max-width: 600px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-#contact-form {
+
+.content-section {
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -34,6 +44,7 @@ nav a {
     max-width: 500px;
     background-color: #f9f9f9;
 }
+
 input[type="text"], input[type="email"], textarea {
     width: 100%;
     padding: 10px;
@@ -41,6 +52,7 @@ input[type="text"], input[type="email"], textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 input[type="submit"] {
     background-color: #333;
     color: white;
@@ -50,6 +62,16 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 16px;
 }
+
 input[type="submit"]:hover {
     background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
