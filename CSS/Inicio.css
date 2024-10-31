@@ -3,22 +3,71 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: #f4f4f4;
 }
+
 header {
     background-color: #333;
     color: #fff;
     padding: 20px;
 }
+
 nav a {
     color: #fff;
     margin: 0 15px;
     text-decoration: none;
     font-size: 18px;
 }
-#inicio img {
+
+#hero {
+    background-color: #007BFF;
+    color: white;
+    padding: 40px 20px;
+}
+
+#hero img {
     width: 80%;
     max-width: 800px;
     margin-top: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.content-section {
+    padding: 40px 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h2 {
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.grid-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
