@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false // Change to false to avoid creating sessions for unauthenticated users
 }));
 
 // Azure SQL Database configuration
@@ -41,18 +41,26 @@ app.post('/login', async (req, res) => {
 
     try {
         const request = new sql.Request();
-        const result = await request.query(`SELECT * FROM Usuarios WHERE Username = '${username}'`);
+        request.input('username', sql.VarChar, username);
+        const result = await request.query(`SELECT * FROM Usuarios WHERE Username = @username`);
         const user = result.recordset[0];
 
-        if (user && bcrypt.compareSync(password, user.Password)) {
-            req.session.user = user;
-            res.redirect('/admin.html');
+        if (user) {
+            const passwordMatch = bcrypt.compareSync(password, user.Password);
+            if (passwordMatch) {
+                req.session.user = user;
+                res.json({ success: true });
+            } else {
+                console.log('Password does not match');
+                res.json({ success: false });
+            }
         } else {
-            res.send('Usuario o contraseña incorrectos');
+            console.log('User not found');
+            res.json({ success: false });
         }
     } catch (err) {
         console.error('Error during login:', err);
-        res.status(500).send('Error en el servidor');
+        res.status(500).json({ success: false });
     }
 });
 
