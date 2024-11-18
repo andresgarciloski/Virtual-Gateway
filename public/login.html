@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Contactanos.css">
+    <title>Login</title>
+    <link rel="icon" href="/IMG/Logo-icono.png">
+</head>
+<body>
+
+<header>
+    <h1>Login de Administrador</h1>
+</header>
+
+<main>
+    <section id="login-form" class="content-section">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" action="/login" method="post">
+            <input type="text" name="username" placeholder="Nombre de Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+        <p id="error-message" style="color: red; display: none;">Usuario o contraseña incorrectos.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2023 VirtualGetaway. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData
+        });
+        if (response.ok) {
+            window.location.href = '/admin.html';
+        } else {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    });
+</script>
+
+</body>
+</html>

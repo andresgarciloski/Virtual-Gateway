@@ -10,6 +10,7 @@ header {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    position: relative;
 }
 
 nav a {
@@ -17,6 +18,19 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-size: 18px;
+}
+
+.admin-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.admin-icon:hover {
+    color: #ccc;
 }
 
 #hero {
@@ -70,4 +84,31 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+table thead tr {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
 }

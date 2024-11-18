@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/CSS/Inicio.css">
     <title>VirtualGetaway - Inicio</title>
     <link rel="icon" href="/IMG/Logo-icono.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 
@@ -16,6 +17,9 @@
         <a href="/Tours2.html">Tours VirtualGetaway</a>
         <a href="/Contactanos.html">Reserva</a>
     </nav>
+    <a href="/login.html" class="admin-icon">
+        <i class="fas fa-user-shield"></i>
+    </a>
 </header>
 
 <section id="hero">
@@ -53,6 +57,20 @@
 <footer>
     <p>&copy; 2023 VirtualGetaway. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('/check-auth')
+            .then(response => response.json())
+            .then(data => {
+                if (data.isAuthenticated) {
+                    document.querySelector('.admin-icon').style.display = 'block';
+                } else {
+                    document.querySelector('.admin-icon').style.display = 'none';
+                }
+            });
+    });
+</script>
 
 </body>
 </html>
