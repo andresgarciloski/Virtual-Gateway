@@ -1,0 +1,29 @@
+/* ...existing code... */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-section label,
+.content-section input {
+    width: 100%;
+    max-width: 300px;
+    margin: 5px 0;
+}
+
+.content-section input {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* ...existing code... */
