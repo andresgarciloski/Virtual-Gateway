@@ -10,6 +10,7 @@ header {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    position: relative;
 }
 
 nav a {
@@ -31,6 +32,17 @@ nav a {
     margin-top: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#login-icon {
+    position: absolute;
+    top: 40px;
+    right:20px;
+}
+
+#login-icon img {
+    width: 50px;
+    height: 50px;
 }
 
 .content-section {
