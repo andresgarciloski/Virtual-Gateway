@@ -19,6 +19,10 @@ nav a {
     font-size: 18px;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
 #contact-info {
     margin: 20px auto;
     max-width: 800px;
@@ -41,30 +45,63 @@ nav a {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
+    max-width: 800px; /* Adjusted to match the other container */
     background-color: #f9f9f9;
 }
 
-input[type="text"], input[type="email"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.content-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-input[type="submit"] {
-    background-color: #333;
+.content-section input[type="text"], .content-section input[type="email"], .content-section input[type="date"], .content-section textarea {
+    width: calc(100% - 24px); /* Adjust width to fit within the container */
+    max-width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #00796b;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+input[type="text"], input[type="email"], input[type="date"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #00796b;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+.content-section input[type="submit"] {
+    background-color: #00796b;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"] {
+    background-color: #00796b;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.content-section input[type="submit"]:hover {
+    background-color: #004d40;
 }
 
 input[type="submit"]:hover {
-    background-color: #555;
+    background-color: #004d40;
 }
 
 footer {
