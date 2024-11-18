@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/Contactanos.css">
+    <link rel="stylesheet" href="/CSS/Contactanos.css">
     <title>Contáctanos</title>
     <link rel="icon" href="/IMG/Logo-icono.png">
 </head>
@@ -12,9 +12,9 @@
 <header>
     <h1>Contáctanos</h1>
     <nav>
-        <a href="Inicio.html">Inicio</a>
-        <a href="tours2.html">Tours VirtualGetaway</a>
-        <a href="Contactanos.html">Reserva</a>
+        <a href="/Inicio.html">Inicio</a>
+        <a href="/Tours2.html">Tours VirtualGetaway</a>
+        <a href="/Contactanos.html">Reserva</a>
     </nav>
 </header>
 
@@ -22,7 +22,7 @@
     <section id="contact-info">
         <h2>Estamos aquí para ayudarte</h2>
         <p>Si tienes alguna pregunta o comentario, no dudes en contactarnos. Nuestro equipo está siempre listo para asistirte y asegurarse de que tengas la mejor experiencia posible.</p>
-        <img src="IMG/Logo.jpg" alt="Imagen de contacto">
+        <img src="/IMG/Logo.jpg" alt="Imagen de contacto">
     </section>
 
     <section id="contact-form" class="content-section">
@@ -36,12 +36,23 @@
             <textarea name="comentarios" rows="5" placeholder="Comentarios o Preguntas" required></textarea>
             <input type="submit" value="Enviar Información">
         </form>
+        <p id="success-message" style="display: none; color: green;">Información enviada correctamente</p>
+        <p id="error-message" style="display: none; color: red;">Error al enviar la información</p>
     </section>
 </main>
 
 <footer>
     <p>&copy; 2023 VirtualGetaway. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        document.getElementById('success-message').style.display = 'block';
+    } else if (urlParams.get('success') === 'false') {
+        document.getElementById('error-message').style.display = 'block';
+    }
+</script>
 
 </body>
 </html>

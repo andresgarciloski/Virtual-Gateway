@@ -38,10 +38,10 @@ app.post('/submit-form', async (req, res) => {
             INSERT INTO Contactos (Nombre, Email, Telefono, Destino, FechaViaje, Comentarios)
             VALUES ('${nombre}', '${email}', '${telefono}', '${destino}', '${fecha_viaje}', '${comentarios}')
         `);
-        res.send('Información enviada correctamente');
+        res.redirect('/Contactanos.html?success=true');
     } catch (err) {
         console.error('Error inserting data:', err);
-        res.status(500).send('Error al enviar la información');
+        res.redirect('/Contactanos.html?success=false');
     }
 });
 
