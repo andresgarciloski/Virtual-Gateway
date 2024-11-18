@@ -27,7 +27,7 @@ const dbConfig = {
 };
 
 // Connect to the database
-sql.connect(dbConfig, err => {
+sql.connect(dbConfig, async err => {
     if (err) {
         console.error('Database connection failed:', err);
         return;
@@ -36,37 +36,21 @@ sql.connect(dbConfig, err => {
 });
 
 // Login route
-app.post('/login', async (req, res) => {
+app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    try {
-        const request = new sql.Request();
-        request.input('username', sql.VarChar, username);
-        const result = await request.query(`SELECT * FROM Usuarios WHERE Username = @username`);
-        const user = result.recordset[0];
-
-        if (user) {
-            const passwordMatch = bcrypt.compareSync(password, user.Password);
-            if (passwordMatch) {
-                req.session.user = user;
-                res.json({ success: true });
-            } else {
-                console.log('Password does not match');
-                res.json({ success: false });
-            }
-        } else {
-            console.log('User not found');
-            res.json({ success: false });
-        }
-    } catch (err) {
-        console.error('Error during login:', err);
-        res.status(500).json({ success: false });
+    if (username === 'andres' && password === 'admin') {
+        req.session.user = { username: 'andres', role: 'admin' }; // Store username and role in session
+        res.json({ success: true });
+    } else {
+        console.log('Invalid username or password');
+        res.json({ success: false });
     }
 });
 
 // Middleware to protect routes
 function isAuthenticated(req, res, next) {
-    if (req.session.user && req.session.user.Role === 'admin') {
+    if (req.session.user && req.session.user.role === 'admin') {
         return next();
     } else {
         res.redirect('/login.html');
@@ -75,7 +59,7 @@ function isAuthenticated(req, res, next) {
 
 // Route to check authentication status
 app.get('/check-auth', (req, res) => {
-    if (req.session.user && req.session.user.Role === 'admin') {
+    if (req.session.user && req.session.user.role === 'admin') {
         res.json({ isAuthenticated: true });
     } else {
         res.json({ isAuthenticated: false });
@@ -90,7 +74,7 @@ app.post('/submit-form', async (req, res) => {
         const request = new sql.Request();
         await request.query(`
             INSERT INTO Contactos (Nombre, Email, Telefono, Destino, FechaViaje, Comentarios)
-            VALUES ('${nombre}', '${email}', '${telefono}', '${destino}', '${fecha_viaje}', '${comentarios}')
+            VALUES (@nombre, @Email, @Telefono, @Destino, @FechaViaje, @Comentarios)
         `);
         res.redirect('/Contactanos.html?success=true');
     } catch (err) {

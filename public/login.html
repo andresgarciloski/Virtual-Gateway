@@ -39,7 +39,7 @@
             body: formData
         });
         const result = await response.json();
-        if (result.success) {
+        if (result.success && formData.get('username') === 'andres' && formData.get('password') === 'admin') {
             window.location.href = '/admin.html';
         } else {
             document.getElementById('error-message').style.display = 'block';

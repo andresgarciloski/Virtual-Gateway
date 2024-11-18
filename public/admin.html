@@ -52,12 +52,10 @@
                 }
             });
     });
-</script>
 
-<script>
     document.addEventListener('DOMContentLoaded', async () => {
         try {
-            const response = await fetch('/api/reservas');
+            const response = await fetch('/ver-contactos');
             const reservas = await response.json();
             const tbody = document.querySelector('#reservas-table tbody');
 
