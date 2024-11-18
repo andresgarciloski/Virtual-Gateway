@@ -45,7 +45,7 @@ nav a {
     height: 50px;
 }
 
-.content-section {
+content-section {
     padding: 40px 20px;
     background-color: #fff;
     margin: 20px 0;
@@ -53,7 +53,7 @@ nav a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.content-section h2 {
+content-section h2 {
     margin-bottom: 20px;
 }
 
@@ -119,4 +119,57 @@ form button {
 
 form button:hover {
     background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#inicio-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#inicio-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+#inicio-icon:hover {
+    color: #ccc;
 }

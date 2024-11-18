@@ -45,6 +45,18 @@ app.post('/submit-form', async (req, res) => {
     }
 });
 
+// Handle fetching reservations
+app.get('/reservas', async (req, res) => {
+    try {
+        const request = new sql.Request();
+        const result = await request.query('SELECT * FROM Contactos');
+        res.json(result.recordset);
+    } catch (err) {
+        console.error('Error fetching reservations:', err);
+        res.status(500).send('Error fetching reservations');
+    }
+});
+
 // Serve static files (your HTML, CSS, JS files)
 app.use(express.static('public'));
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <link rel="stylesheet" href="CSS/Inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        async function fetchReservations() {
+            try {
+                const response = await fetch('/reservas');
+                const reservations = await response.json();
+                const tableBody = document.getElementById('reservations-table-body');
+                reservations.forEach(reservation => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${reservation.Nombre}</td>
+                        <td>${reservation.Email}</td>
+                        <td>${reservation.Telefono}</td>
+                        <td>${reservation.Destino}</td>
+                        <td>${reservation.FechaViaje}</td>
+                        <td>${reservation.Comentarios}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching reservations:', error);
+            }
+        }
+
+        window.onload = fetchReservations;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Reservas</h1>
+        <a id="inicio-icon" href="inicio.html"><i class="fas fa-home"></i></a>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>Destino</th>
+                    <th>Fecha de Viaje</th>
+                    <th>Comentarios</th>
+                </tr>
+            </thead>
+            <tbody id="reservations-table-body">
+                <!-- Reservations will be populated here -->
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
