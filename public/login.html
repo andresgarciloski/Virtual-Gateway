@@ -19,7 +19,7 @@
     <section id="hero">
         <h2>Iniciar Sesión</h2>
         <div class="form-container">
-            <form action="/public/reservas.html" method="post">
+            <form id="loginForm">
                 <div class="content-section">
                     <label for="username">Usuario:</label>
                     <input type="text" id="username" name="username" required>
@@ -29,11 +29,24 @@
                     <br>
                     <button type="submit">Login</button>
                 </div>
+                <div id="error-message" style="color: red; display: none;">Credenciales incorrectas</div>
             </form>
         </div>
     </section>
     <footer>
         <p>&copy; 2023 Virtual Gate-Way. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === 'admin' && password === 'fime#2024') {
+                window.location.href = '/reservas.html';
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
